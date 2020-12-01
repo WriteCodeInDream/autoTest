@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="allTestPackage" verbose="5">
+    <test name="allSort">
+        <packages>
+            <package name="testCase">
+            </package>
+        </packages>
+    </test>
+
+
+</suite>
