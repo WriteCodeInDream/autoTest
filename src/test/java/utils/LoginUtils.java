@@ -2,6 +2,7 @@ package utils;
 
 import base.BaseDriver;
 import pageHandle.LoginPageHandle;
+import testEnum.User;
 
 import java.util.Properties;
 
@@ -30,7 +31,7 @@ public class LoginUtils {
      * @param key key值
      * @return 返回value
      */
-    public String getConfig(String key){
+    private String getConfig(String key){
 
         return GetConfigUtils.getValue(pr, key);
     }
