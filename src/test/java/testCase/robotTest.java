@@ -1,4 +1,4 @@
 package testCase;
 
-public class robotTest {
+public class RobotTest {
 }

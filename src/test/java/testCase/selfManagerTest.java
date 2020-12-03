@@ -1,4 +1,4 @@
 package testCase;
 
-public class selfManagerTest {
+public class SelfManagerTest {
 }

@@ -1,4 +1,4 @@
 package testCase;
 
-public class workOrderTest {
+public class WorkOrderTest {
 }

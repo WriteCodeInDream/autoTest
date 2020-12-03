@@ -1,4 +1,4 @@
 package testCase;
 
-public class systemSettingTest {
+public class SystemSettingTest {
 }

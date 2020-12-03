@@ -1,4 +1,4 @@
 package testCase;
 
-public class workbenchTest {
+public class WorkbenchTest {
 }

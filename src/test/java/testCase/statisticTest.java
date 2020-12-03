@@ -1,4 +1,4 @@
 package testCase;
 
-public class statisticTest {
+public class StatisticTest {
 }
