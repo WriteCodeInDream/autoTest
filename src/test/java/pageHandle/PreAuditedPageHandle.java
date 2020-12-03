@@ -6,6 +6,7 @@ import base.BaseDriver;
 import org.openqa.selenium.WebElement;
 import pageOperate.PreAuditedPageOperation;
 
+import testEnum.EnumKnowledge;
 import utils.TimeWaitingMethod;
 
 import java.util.List;
@@ -20,14 +21,9 @@ public class PreAuditedPageHandle {
 
     /**
      *  新增知识
-     * @param standardQuestion 标准问题
      * @param sortType 问题分类
-     * @param standardAnswer 标准答案
-     * @param similarQuestionList 相似问题集合
-     * @param similarAnswerList 相似答案集合
      */
-    public void testAddKnowledge(String standardQuestion, String standardAnswer, String sortType, List<String>
-            similarQuestionList, List<String> similarAnswerList){
+    public void testAddKnowledge(String sortType, EnumKnowledge knowledge){
         preAuditedPageOperation.clickCreateNewKnowledge();
 
         WebElement createNewKnowledgeModal = preAuditedPageOperation.getCreateNewModal();
@@ -35,19 +31,26 @@ public class PreAuditedPageHandle {
         preAuditedPageOperation.clickDownListOfSortType(createNewKnowledgeModal);
         preAuditedPageOperation.selectTypeOfCreateNew(sortType,createNewKnowledgeModal);
         // 点击添加相似问题
-        for(int i = 0; i<similarQuestionList.size(); i++){
-            preAuditedPageOperation.clickAddNewSimilarQuestion(createNewKnowledgeModal);
+        if(null != knowledge.similarQuestion){
+            for(int i = 0; i<knowledge.similarQuestion.size(); i++){
+                preAuditedPageOperation.clickAddNewSimilarQuestion(createNewKnowledgeModal);
+            }
+            preAuditedPageOperation.sendSimilarQuestion(knowledge.similarQuestion, createNewKnowledgeModal);
         }
-        for (int i = 0; i<similarAnswerList.size(); i++){
-            preAuditedPageOperation.clickAddOrDecreaseSimilarAnswer(similarQuestionList.size()>0,
-                    true, createNewKnowledgeModal);
+
+        // 点击添加相似答案
+        if(null != knowledge.similarAnswer){
+            for (int i = 0; i<knowledge.similarAnswer.size(); i++){
+                preAuditedPageOperation.clickAddOrDecreaseSimilarAnswer(knowledge.similarQuestion.size()>0,
+                        true, createNewKnowledgeModal);
+            }
+            preAuditedPageOperation.sendSimilarAnswer(knowledge.similarQuestion.size()>0, knowledge.similarAnswer
+                    ,createNewKnowledgeModal);
         }
-        preAuditedPageOperation.sendStandardQuestion(standardQuestion,createNewKnowledgeModal);
-        preAuditedPageOperation.sendStandardAnswer(similarQuestionList.size()>0,standardAnswer
+
+        preAuditedPageOperation.sendStandardQuestion(knowledge.question,createNewKnowledgeModal);
+        preAuditedPageOperation.sendStandardAnswer(knowledge.similarQuestion.size()>0,knowledge.answer
         , createNewKnowledgeModal);
-        preAuditedPageOperation.sendSimilarQuestion(similarQuestionList, createNewKnowledgeModal);
-        preAuditedPageOperation.sendSimilarAnswer(similarQuestionList.size()>0, similarAnswerList
-        ,createNewKnowledgeModal);
         preAuditedPageOperation.clickConfirmYes(createNewKnowledgeModal);
     }
 

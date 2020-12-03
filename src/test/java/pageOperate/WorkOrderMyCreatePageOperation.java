@@ -3,10 +3,10 @@ package pageOperate;
 import base.BaseDriver;
 import pageElement.WorkOrderMyCreatePage;
 
-public class WorkOrderMyCreatePageOperation {
+public class WorkOrderMyCreatePageOperation extends WorkOrderCommonPageOperation{
     private WorkOrderMyCreatePage workOrderMyCreatePage;
     public WorkOrderMyCreatePageOperation(BaseDriver baseDriver){
-        this.workOrderMyCreatePage = new WorkOrderMyCreatePage(baseDriver);
+        super(baseDriver);
     }
     public void sengKeysToTheme(String value){
         workOrderMyCreatePage.sendKeys(workOrderMyCreatePage.getWorkOrderTheme(),value);

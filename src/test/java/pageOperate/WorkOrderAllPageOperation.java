@@ -3,10 +3,10 @@ package pageOperate;
 import base.BaseDriver;
 import pageElement.WorkOrderAllPage;
 
-public class WorkOrderAllPageOperation {
+public class WorkOrderAllPageOperation extends WorkOrderMyCreatePageOperation{
     private WorkOrderAllPage workOrderAllPage;
     public WorkOrderAllPageOperation(BaseDriver baseDriver){
-        this.workOrderAllPage = new WorkOrderAllPage(baseDriver);
+        super(baseDriver);
     }
 
     public void sendKeysToNumberInput(String value){

@@ -1,6 +1,6 @@
 package utils;
 
-import testCase.loginTest;
+import testCase.LoginTest;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,7 +11,7 @@ public class GetConfigUtils {
     static Properties pr;
 
     public static Properties getProperties(String path){
-        inputStream = loginTest.class.getClassLoader().getResourceAsStream(path);
+        inputStream = LoginTest.class.getClassLoader().getResourceAsStream(path);
         pr = new Properties();
         try {
             pr.load(inputStream);

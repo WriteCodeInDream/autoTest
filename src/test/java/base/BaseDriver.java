@@ -3,6 +3,7 @@ package base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class BaseDriver {
-    private WebDriver baseDiver;
+    private WebDriver baseDiver ;
     public BaseDriver(String driverType){
         SelectDiver selectDiver = new SelectDiver(driverType);
         this.baseDiver = selectDiver.selectDriver();
@@ -117,7 +118,7 @@ public class BaseDriver {
      * 设置隐式等待
      */
     public void setImplicitlyWait(){
-        baseDiver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
+        baseDiver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
 

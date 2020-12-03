@@ -3,10 +3,10 @@ package pageOperate;
 import base.BaseDriver;
 import pageElement.WorkOrderMyResolvePage;
 
-public class WorkOrderMyResolvePageOperation {
+public class WorkOrderMyResolvePageOperation extends WorkOrderCommonPageOperation{
     private WorkOrderMyResolvePage workOrderMyResolvePage;
     public WorkOrderMyResolvePageOperation(BaseDriver baseDriver){
-        this.workOrderMyResolvePage = new WorkOrderMyResolvePage(baseDriver);
+        super(baseDriver);
     }
 
     public void sendKeysToTheme(String value){

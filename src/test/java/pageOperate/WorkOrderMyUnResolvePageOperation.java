@@ -3,10 +3,10 @@ package pageOperate;
 import base.BaseDriver;
 import pageElement.WorkOrderMyUnResolvePage;
 
-public class WorkOrderMyUnResolvePageOperation {
+public class WorkOrderMyUnResolvePageOperation extends WorkOrderCommonPageOperation{
     private WorkOrderMyUnResolvePage workOrderMyUnResolvePage;
     public WorkOrderMyUnResolvePageOperation(BaseDriver baseDriver){
-        this.workOrderMyUnResolvePage = new WorkOrderMyUnResolvePage(baseDriver);
+        super(baseDriver);
     }
 
     public void sendKeysToNumber(String value){

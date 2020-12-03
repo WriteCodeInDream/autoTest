@@ -1,24 +1,25 @@
 package testCase;
 
-import base.BaseDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pageHandle.LoginPageHandle;
 import utils.GetConfigUtils;
+import utils.TestListen;
 
 import java.util.Properties;
 
 /**
  * 登录页面的测试，不包含验证码
  */
-public class loginTest {
+@Listeners({TestListen.class})
+public class LoginTest extends BaseCase{
     /**
      * 测试前准备，实例化driver，窗口最大化
      *
      */
     private Properties pr;
-    private BaseDriver driver;
     private LoginPageHandle login;
 
     @BeforeClass
@@ -29,7 +30,7 @@ public class loginTest {
         pr = GetConfigUtils.getProperties("testConfig.properties");
         String testBrowser = getConfig("testBrowser");
         String testUrl = getConfig("testUrl");
-        driver = new BaseDriver(testBrowser);
+        driver = new BaseCase().initDriver(testBrowser);
         driver.pageMax();
         driver.getUrl(testUrl);
         login = new LoginPageHandle(driver);
@@ -104,6 +105,9 @@ public class loginTest {
         return GetConfigUtils.getValue(pr, key);
     }
 
+    /**
+     * 关闭浏览器
+     */
     @AfterClass
     public void closeBrowser(){
         if (driver != null){
