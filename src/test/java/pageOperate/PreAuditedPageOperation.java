@@ -226,6 +226,15 @@ public class PreAuditedPageOperation {
         preAuditedPage.clickWebElement(preAuditedPage.getConfirmYes(modalType));
     }
 
+    /**
+     * 点击取消创建知识
+     * @param modalType
+     */
+    public void clickConfirmNo(WebElement modalType){
+        if(preAuditedPage.isEnable(preAuditedPage.getConfirmNo(modalType))){
+            preAuditedPage.clickWebElement(preAuditedPage.getConfirmNo(modalType));
+        }
+    }
 
     /**
      *

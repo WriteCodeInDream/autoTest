@@ -24,11 +24,11 @@ public class PreAuditedPageHandle {
      * @param sortType 问题分类
      */
     public void testAddKnowledge(String sortType, EnumKnowledge knowledge){
+        WebElement createNewKnowledgeModal;
         preAuditedPageOperation.clickCreateNewKnowledge();
-
-        WebElement createNewKnowledgeModal = preAuditedPageOperation.getCreateNewModal();
+        createNewKnowledgeModal = preAuditedPageOperation.getCreateNewModal();
         TimeWaitingMethod.TimeWaiting(2000);
-        if(null != sortType && sortType.length() ==0 && !sortType.equals(" ")){
+        if(!(null == sortType || sortType.length() == 0 || sortType.equals(" "))){
             preAuditedPageOperation.clickDownListOfSortType(createNewKnowledgeModal);
             preAuditedPageOperation.selectTypeOfCreateNew(sortType,createNewKnowledgeModal);
         }
@@ -43,17 +43,18 @@ public class PreAuditedPageHandle {
         // 点击添加相似答案
         if(null != knowledge.similarAnswer){
             for (int i = 0; i<knowledge.similarAnswer.size(); i++){
-                preAuditedPageOperation.clickAddOrDecreaseSimilarAnswer(knowledge.similarQuestion.size()>0,
+                preAuditedPageOperation.clickAddOrDecreaseSimilarAnswer(null == knowledge.similarQuestion?false:knowledge.similarQuestion.size()>0,
                         true, createNewKnowledgeModal);
             }
-            preAuditedPageOperation.sendSimilarAnswer(knowledge.similarQuestion.size()>0, knowledge.similarAnswer
+            preAuditedPageOperation.sendSimilarAnswer(null == knowledge.similarQuestion?false:knowledge.similarQuestion.size()>0, knowledge.similarAnswer
                     ,createNewKnowledgeModal);
         }
 
         preAuditedPageOperation.sendStandardQuestion(knowledge.question,createNewKnowledgeModal);
-        preAuditedPageOperation.sendStandardAnswer(knowledge.similarQuestion.size()>0,knowledge.answer
+        preAuditedPageOperation.sendStandardAnswer(null == knowledge.similarQuestion?false:knowledge.similarQuestion.size()>0,knowledge.answer
         , createNewKnowledgeModal);
         preAuditedPageOperation.clickConfirmYes(createNewKnowledgeModal);
+        preAuditedPageOperation.clickConfirmNo(createNewKnowledgeModal);
     }
 
     /**
@@ -185,7 +186,10 @@ public class PreAuditedPageHandle {
                 preAuditedPageOperation.clickConfirmNo();
             }
         }
+
+
     }
+
 
     }
 

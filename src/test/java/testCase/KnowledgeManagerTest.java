@@ -39,7 +39,7 @@ public class KnowledgeManagerTest extends BaseCase{
     @Test
     public void testAddKnowledgeOne(){
         pre.testAddKnowledge("宠物",EnumKnowledge.SIMILAR_STANDARD);
-        Assert.assertEquals(SystemMessage.SUCCESS_ADD, getSysTemResponse());
+        Assert.assertEquals(SystemMessage.SUCCESS_ADD.message, getSysTemResponse());
     }
 
     /**
@@ -48,7 +48,7 @@ public class KnowledgeManagerTest extends BaseCase{
     @Test
     public void testAddKnowledgeNormalTwo() {
         pre.testAddKnowledge("宠物",EnumKnowledge.NORMAL);
-        Assert.assertEquals(SystemMessage.SUCCESS_ADD, getSysTemResponse());
+        Assert.assertEquals(SystemMessage.SUCCESS_ADD.message, getSysTemResponse());
     }
 
     /**
@@ -57,7 +57,7 @@ public class KnowledgeManagerTest extends BaseCase{
     @Test
     public void testAddKnowledgeNormalThree() {
         pre.testAddKnowledge("宠物", EnumKnowledge.SIMILAR_ANSWER_STANDARD);
-        Assert.assertEquals(SystemMessage.SUCCESS_ADD, getSysTemResponse());
+        Assert.assertEquals(SystemMessage.SUCCESS_ADD.message, getSysTemResponse());
     }
 
     /**
@@ -66,7 +66,7 @@ public class KnowledgeManagerTest extends BaseCase{
     @Test
     public void testAddKnowledgeNormalFour(){
         pre.testAddKnowledge("宠物", EnumKnowledge.SIMILAR_QUESTION_STANDARD);
-        Assert.assertEquals(SystemMessage.SUCCESS_ADD, getSysTemResponse());
+        Assert.assertEquals(SystemMessage.SUCCESS_ADD.message, getSysTemResponse());
     }
 
     /**
@@ -75,7 +75,7 @@ public class KnowledgeManagerTest extends BaseCase{
     @Test
     public void testAddKnowledgeUnNormalOne(){
         pre.testAddKnowledge(" ", EnumKnowledge.NORMAL);
-        Assert.assertEquals(SystemMessage.SORT_TYPE_EMPTY, getSysTemResponse());
+        Assert.assertEquals(SystemMessage.SORT_TYPE_EMPTY.message, getSysTemResponse());
     }
 
     /**
@@ -84,7 +84,7 @@ public class KnowledgeManagerTest extends BaseCase{
     @Test
     public void testAddKnowledgeUnNormalTwo(){
         pre.testAddKnowledge("宠物", EnumKnowledge.STANDARD_QUESTION_NULL);
-        Assert.assertEquals(SystemMessage.STANDARD_QUESTION_EMPTY, getSysTemResponse());
+        Assert.assertEquals(SystemMessage.STANDARD_QUESTION_EMPTY.message, getSysTemResponse());
     }
 
     /**
@@ -93,7 +93,7 @@ public class KnowledgeManagerTest extends BaseCase{
     @Test
     public void testAddKnowledgeUnNormalThree(){
         pre.testAddKnowledge("宠物", EnumKnowledge.STANDARD_ANSWER_NULL);
-        Assert.assertEquals(SystemMessage.STANDARD_ANSWER_EMPTY, getSysTemResponse());
+        Assert.assertEquals(SystemMessage.STANDARD_ANSWER_EMPTY.message, getSysTemResponse());
     }
 
     /**
@@ -102,7 +102,7 @@ public class KnowledgeManagerTest extends BaseCase{
     @Test
     public void testAddKnowledgeUnNormalFour(){
         pre.testAddKnowledge("宠物", EnumKnowledge.SIMILAR_QUESTION_HAS_NULL);
-        Assert.assertEquals(SystemMessage.SIMILAR_QUESTION_EMPTY, getSysTemResponse());
+        Assert.assertEquals(SystemMessage.SIMILAR_QUESTION_EMPTY.message, getSysTemResponse());
     }
 
     /**
@@ -111,7 +111,7 @@ public class KnowledgeManagerTest extends BaseCase{
     @Test
     public void testAddKnowledgeUnNormalFive(){
         pre.testAddKnowledge("宠物", EnumKnowledge.SIMILAR_ANSWER_NULL);
-        Assert.assertEquals(SystemMessage.SIMILAR_ANSWER_EMPTY, getSysTemResponse());
+        Assert.assertEquals(SystemMessage.SIMILAR_ANSWER_EMPTY.message, getSysTemResponse());
     }
 
     /**
@@ -120,7 +120,7 @@ public class KnowledgeManagerTest extends BaseCase{
     @Test
     public void testAddKnowledgeUnNormalSix(){
         pre.testAddKnowledge("宠物", EnumKnowledge.SIMILAR_QUESTION_SAME_WITH_STANDARD);
-        Assert.assertEquals(SystemMessage.SIMILAR_QUESTION_SAME_WITH_STANDARD, getSysTemResponse());
+        Assert.assertEquals(SystemMessage.SIMILAR_QUESTION_SAME_WITH_STANDARD.message, getSysTemResponse());
     }
 
     /**
@@ -137,7 +137,7 @@ public class KnowledgeManagerTest extends BaseCase{
     @Test
     public void testAddKnowledgeUnNormalEight(){
         pre.testAddKnowledge("宠物", EnumKnowledge.STANDARD_QUESTION_EXITS);
-        Assert.assertEquals(SystemMessage.STANDARD_QUESTION_EXIT, getSysTemResponse());
+        Assert.assertEquals(SystemMessage.STANDARD_QUESTION_EXIT.message, getSysTemResponse());
     }
 
     @AfterClass
