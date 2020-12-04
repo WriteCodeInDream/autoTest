@@ -28,8 +28,10 @@ public class PreAuditedPageHandle {
 
         WebElement createNewKnowledgeModal = preAuditedPageOperation.getCreateNewModal();
         TimeWaitingMethod.TimeWaiting(2000);
-        preAuditedPageOperation.clickDownListOfSortType(createNewKnowledgeModal);
-        preAuditedPageOperation.selectTypeOfCreateNew(sortType,createNewKnowledgeModal);
+        if(null != sortType && sortType.length() ==0 && !sortType.equals(" ")){
+            preAuditedPageOperation.clickDownListOfSortType(createNewKnowledgeModal);
+            preAuditedPageOperation.selectTypeOfCreateNew(sortType,createNewKnowledgeModal);
+        }
         // 点击添加相似问题
         if(null != knowledge.similarQuestion){
             for(int i = 0; i<knowledge.similarQuestion.size(); i++){
